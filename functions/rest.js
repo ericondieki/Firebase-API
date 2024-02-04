@@ -78,7 +78,7 @@ app.post("/DeleteInventory", async(req, res) => {
        res.status(400).send({error: valData.error.details[0].message})
     }
     
-    // Looking item user is trying to delete and informing them if it doesn't exist
+    // Looking for item user is trying to delete and informing them if it doesn't exist
     try{
         const snapShot = await getDocs(Item);
         const matchingDoc = snapShot.docs.find(doc => doc.data().item === deleteItemid);
